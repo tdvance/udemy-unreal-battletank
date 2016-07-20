@@ -37,3 +37,19 @@ ATank* ATankAIController::GetPlayerTank() const {
 	ATank* tank = Cast<ATank>(PlayerPawn);
 	return tank;
 }
+
+
+void ATankAIController::Tick(float DeltaSeconds) {
+	Super::Tick(DeltaSeconds);
+	ATank* ControlledTank = GetControlledTank();
+	if (!ControlledTank) {
+		return;
+	}
+
+	ATank* PlayerTank = GetPlayerTank();
+	if (!PlayerTank) {
+		return;
+	}
+	FVector HitLocation = PlayerTank->GetActorLocation();
+	ControlledTank->AimAt(HitLocation);
+}
