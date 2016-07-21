@@ -11,7 +11,7 @@ UTankAimingComponent::UTankAimingComponent()
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
 	// off to improve performance if you don't need them.
 	bWantsBeginPlay = true;
-	PrimaryComponentTick.bCanEverTick = true;
+	PrimaryComponentTick.bCanEverTick = true;//TODO should this really tick?
 
 	// ...
 }
@@ -43,6 +43,6 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection) {
 	//find delta pitch/roll/yaw to move barrel direction toward aim direction
 	FRotator DeltaRotator = AimAsRotator - BarrelRotator;
 
-	UE_LOG(LogTemp, Warning, TEXT("AimAsRotator: %s"), *AimAsRotator.ToString())
+	//UE_LOG(LogTemp, Warning, TEXT("AimAsRotator: %s"), *AimAsRotator.ToString())
 		Barrel->ElevateBarrel(5); //TODO remove magic number
 }
