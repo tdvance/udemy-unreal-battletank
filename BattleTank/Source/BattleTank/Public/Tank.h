@@ -9,6 +9,7 @@
 class UTankBarrel;
 class UTankTurret;
 class UTankAimingComponent;
+class AProjectile;
 
 UCLASS()
 class BATTLETANK_API ATank : public APawn
@@ -41,6 +42,12 @@ private:
 
 	UPROPERTY(EditAnywhere, Category = Firing)
 		float LaunchSpeed = 85344;//value from www.militaryfactory.com
+
+	UPROPERTY(EditAnywhere, Category = Setup)
+		TSubclassOf<AProjectile> ProjectileBluePrint; 
+
+	//Local barrel reference for spawning projectile
+	UTankBarrel* Barrel = nullptr; 
 
 protected:
 	UTankAimingComponent* TankAimingComponent = nullptr;
