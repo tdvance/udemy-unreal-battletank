@@ -28,7 +28,6 @@ public:
 	void AimAt(APawn* tank, FVector HitLocation, float LaunchSpeed);
 
 	void MoveBarrelTowards(FVector AimDirection);
-	void MoveTurretTowards(FVector AimDirection);
 
 private:
 	UTankBarrel* Barrel = nullptr;
